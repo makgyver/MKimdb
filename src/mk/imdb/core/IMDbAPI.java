@@ -151,6 +151,37 @@ public final class IMDbAPI {
 		}
 	}
 	
+	/**
+	 * Searches for movies by title. Gets all the results.
+	 * 
+	 * @param params The list of parameters (Limit and Offset parameters will be ignored).
+	 * @return The IMDb API (imdbapi.org) response object.
+	 */
+	public static IMDbResponseArray fullSearchMovieByTitle(IMDbSearchByTitleParameters params) {
+		try {
+			
+			params.setLimit(5);
+			params.setOffset(0);
+			
+			IMDbResponseArray result = new IMDbResponseArray(toJSON(makeApiCallGet(IMDbURLCreator.searchMovieByTitleUrl(params))));
+			
+			for (int p = 1; p * 5 < result.getResults(); p++) {
+				params.setOffset(p * 5);
+				IMDbResponseArray page = new IMDbResponseArray(toJSON(makeApiCallGet(IMDbURLCreator.searchMovieByTitleUrl(params))));
+				for (Object obj : page.getData()) {
+					result.addData((JSONObject) obj);
+				}
+			}
+			
+			return result;
+			
+		} catch (MalformedURLException e) {
+			Log.print(e);
+			
+			return new IMDbResponseArray(IMDbStatus.MALFORMED_URL);
+		}
+	}
+	
 	//endregion
 	
 }

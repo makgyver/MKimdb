@@ -670,7 +670,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * @return The movie
 	 * @throws IMDbResponseException Throws whether the server response is not a success.
 	 */
-	public static IMDbMovie searchMovieById(IMDbSearchByIdParameters params) throws IMDbResponseException {
+	public static IMDbMovie searchById(IMDbSearchByIdParameters params) throws IMDbResponseException {
 		
 		IMDbResponseObject response = IMDbAPI.searchMovieById(params);
 		
@@ -688,9 +688,32 @@ public class IMDbMovie extends IMDbEntity {
 	 * @return The movie
 	 * @throws IMDbResponseException Throws whether the server response is not a success.
 	 */
-	public static Set<IMDbMovie> searchMovieByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
+	public static Set<IMDbMovie> searchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
 		
 		IMDbResponseArray response = IMDbAPI.searchMovieByTitle(params);
+		
+		if (response.hasError()) {
+			throw new IMDbResponseException(response.getStatus());
+		} else {
+			
+			Set<IMDbMovie> movies = new LinkedHashSet<IMDbMovie>();
+			for (JSONObject json : response.getData()) {
+				movies.add(new IMDbMovie(json));
+			}
+			return movies;
+		}
+	}
+	
+	/**
+	 * Searches for movies by title. Gets all the results.
+	 * 
+	 * @param params The list of parameters (Limit and Offset parameters will be ignored)
+	 * @return The movie
+	 * @throws IMDbResponseException Throws whether the server response is not a success.
+	 */
+	public static Set<IMDbMovie> fullSearchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
+		
+		IMDbResponseArray response = IMDbAPI.fullSearchMovieByTitle(params);
 		
 		if (response.hasError()) {
 			throw new IMDbResponseException(response.getStatus());
