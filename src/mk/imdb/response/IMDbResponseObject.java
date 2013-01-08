@@ -59,33 +59,6 @@ public class IMDbResponseObject extends IMDbResponse {
 	}
 	
 	/**
-	 * Gets whether the response status is an error.
-	 * 
-	 * @return Whether the response status is an error.
-	 */
-	public boolean hasError() {
-		return status.getCode() > IMDbStatus.NONE.getCode();
-	}
-	
-	/**
-	 * Gets the response status.
-	 * 
-	 * @return The response status
-	 */
-	public IMDbStatus getStatus() {
-		return status;
-	}
-
-	/**
-	 * Sets the response status.
-	 * 
-	 * @param status The new response status
-	 */
-	protected void setStatus(IMDbStatus status) {
-		this.status = status;
-	}
-	
-	/**
 	 * Set the data to the given JSON object.
 	 * 
 	 * @param json The new data
