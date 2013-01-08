@@ -20,3 +20,4 @@ Library dependences:
 
 ChangeLog
 =========
+* [08/01/2013] Released version 0.9
