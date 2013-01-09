@@ -29,8 +29,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 import mk.imdb.core.IMDbAPI;
 import mk.imdb.core.IMDbConstants;
@@ -107,47 +107,47 @@ public class IMDbMovie extends IMDbEntity {
 	/**
 	 * The movie cast.
 	 */
-	private Set<String> actors = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> actors = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie countries.
 	 */
-	private Set<String> countries = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> countries = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie directors.
 	 */
-	private Set<String> directors = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> directors = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie genres.
 	 */
-	private Set<String> genres = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> genres = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie languages.
 	 */
-	private Set<String> langs = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> langs = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie writers.
 	 */
-	private Set<String> writers = Collections.synchronizedSet(new LinkedHashSet<String>());
+	private List<String> writers = Collections.synchronizedList(new LinkedList<String>());
 	
 	/**
 	 * The movie runtimes.
 	 */
-	private Set<Integer> runtimes = Collections.synchronizedSet(new LinkedHashSet<Integer>());
+	private List<Integer> runtimes = Collections.synchronizedList(new LinkedList<Integer>());
 	
 	/**
 	 * The movie aliases (aka: also known as).
 	 */
-	private Set<Pair<String, String>> akas = Collections.synchronizedSet(new LinkedHashSet<Pair<String, String>>());
+	private List<Pair<String, String>> akas = Collections.synchronizedList(new LinkedList<Pair<String, String>>());
 	
 	/**
 	 * The movie release dates.
 	 */
-	private Set<Pair<String, Date>> releases = Collections.synchronizedSet(new LinkedHashSet<Pair<String, Date>>());
+	private List<Pair<String, Date>> releases = Collections.synchronizedList(new LinkedList<Pair<String, Date>>());
 	
 	//endregion
 	
@@ -348,7 +348,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie cast.
 	 */
-	public Set<String> getActors() {
+	public List<String> getActors() {
 		return actors;
 	}
 	
@@ -357,7 +357,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param actors The new movie cast
 	 */
-	public void setActors(Set<String> actors) {
+	public void setActors(List<String> actors) {
 		this.actors = actors;
 	}
 	
@@ -366,7 +366,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie countries
 	 */
-	public Set<String> getCountries() {
+	public List<String> getCountries() {
 		return countries;
 	}
 	
@@ -375,7 +375,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param countries The new movie countries
 	 */
-	public void setCountries(Set<String> countries) {
+	public void setCountries(List<String> countries) {
 		this.countries = countries;
 	}
 	
@@ -384,7 +384,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie directors
 	 */
-	public Set<String> getDirectors() {
+	public List<String> getDirectors() {
 		return directors;
 	}
 	
@@ -393,7 +393,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param directors The new movie directors
 	 */
-	public void setDirectors(Set<String> directors) {
+	public void setDirectors(List<String> directors) {
 		this.directors = directors;
 	}
 	
@@ -402,7 +402,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie genres
 	 */
-	public Set<String> getGenres() {
+	public List<String> getGenres() {
 		return genres;
 	}
 	
@@ -411,7 +411,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param genres The new movie genres
 	 */
-	public void setGenres(Set<String> genres) {
+	public void setGenres(List<String> genres) {
 		this.genres = genres;
 	}
 	
@@ -420,7 +420,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie languages
 	 */
-	public Set<String> getLanguages() {
+	public List<String> getLanguages() {
 		return langs;
 	}
 	
@@ -429,7 +429,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param langs The new movie languages
 	 */
-	public void setLanguages(Set<String> langs) {
+	public void setLanguages(List<String> langs) {
 		this.langs = langs;
 	}
 	
@@ -438,7 +438,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie writers
 	 */
-	public Set<String> getWriters() {
+	public List<String> getWriters() {
 		return writers;
 	}
 	
@@ -447,7 +447,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param writers The new mvovie writers
 	 */
-	public void setWriters(Set<String> writers) {
+	public void setWriters(List<String> writers) {
 		this.writers = writers;
 	}
 	
@@ -456,7 +456,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie runtimes
 	 */
-	public Set<Integer> getRuntimes() {
+	public List<Integer> getRuntimes() {
 		return runtimes;
 	}
 	
@@ -465,7 +465,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param runtimes The new movie runtimes
 	 */
-	public void setRuntimes(Set<Integer> runtimes) {
+	public void setRuntimes(List<Integer> runtimes) {
 		this.runtimes = runtimes;
 	}
 	
@@ -475,7 +475,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * @return The movie aliases.
 	 * 
 	 */
-	public Set<Pair<String, String>> getAKA() {
+	public List<Pair<String, String>> getAKA() {
 		return akas;
 	}
 	
@@ -484,7 +484,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param akas The new movie aliases
 	 */
-	public void setAKA(Set<Pair<String, String>> akas) {
+	public void setAKA(List<Pair<String, String>> akas) {
 		this.akas = akas;
 	}
 	
@@ -493,7 +493,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @return The movie release dates
 	 */
-	public Set<Pair<String, Date>> getReleases() {
+	public List<Pair<String, Date>> getReleases() {
 		return releases;
 	}
 	
@@ -502,7 +502,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * 
 	 * @param releases The new movie release dates
 	 */
-	public void setReleases(Set<Pair<String, Date>> releases) {
+	public void setReleases(List<Pair<String, Date>> releases) {
 		this.releases = releases;
 	}
 	
@@ -688,7 +688,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * @return The movie
 	 * @throws IMDbResponseException Throws whether the server response is not a success.
 	 */
-	public static Set<IMDbMovie> searchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
+	public static List<IMDbMovie> searchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
 		
 		IMDbResponseArray response = IMDbAPI.searchMovieByTitle(params);
 		
@@ -696,7 +696,7 @@ public class IMDbMovie extends IMDbEntity {
 			throw new IMDbResponseException(response.getStatus());
 		} else {
 			
-			Set<IMDbMovie> movies = new LinkedHashSet<IMDbMovie>();
+			List<IMDbMovie> movies = new LinkedList<IMDbMovie>();
 			for (JSONObject json : response.getData()) {
 				movies.add(new IMDbMovie(json));
 			}
@@ -711,7 +711,7 @@ public class IMDbMovie extends IMDbEntity {
 	 * @return The movie
 	 * @throws IMDbResponseException Throws whether the server response is not a success.
 	 */
-	public static Set<IMDbMovie> fullSearchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
+	public static List<IMDbMovie> fullSearchByTitle(IMDbSearchByTitleParameters params) throws IMDbResponseException {
 		
 		IMDbResponseArray response = IMDbAPI.fullSearchMovieByTitle(params);
 		
@@ -719,7 +719,7 @@ public class IMDbMovie extends IMDbEntity {
 			throw new IMDbResponseException(response.getStatus());
 		} else {
 			
-			Set<IMDbMovie> movies = new LinkedHashSet<IMDbMovie>();
+			List<IMDbMovie> movies = new LinkedList<IMDbMovie>();
 			for (JSONObject json : response.getData()) {
 				movies.add(new IMDbMovie(json));
 			}
