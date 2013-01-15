@@ -506,6 +506,35 @@ public class IMDbMovie extends IMDbEntity {
 		this.releases = releases;
 	}
 	
+	/**
+	 * Gets the movie year (US release).
+	 * 
+	 * @return The movie year.
+	 */
+	public int getYear() {
+		return getYear("USA");
+	}
+	
+	/**
+	 * Gets the movie year.
+	 * 
+	 * @param country The release country name
+	 * @return The movie year
+	 */
+	public int getYear(String country) {
+		int year = 1900;
+		
+		SimpleDateFormat formatNowYear = new SimpleDateFormat("yyyy");
+		for (Pair<String, Date> release : releases) {
+			if (release.getFirst().equals(country)) {
+				year = Integer.valueOf(formatNowYear.format(release.getSecond()));
+				break;
+			}
+		}
+		
+		return year;
+	}
+	
 	//endregion
 	
 	/**

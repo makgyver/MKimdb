@@ -47,7 +47,7 @@ public class IMDbResponseException extends Exception {
 	}
 	
 	/**
-	 * Creates a new instance of ImageSizeNotSupportedException with the given status.
+	 * Creates a new instance of IMDbResponseException with the given status.
 	 * 
 	 * @param status The response status.
 	 */
