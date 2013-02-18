@@ -4,7 +4,7 @@ MKtmdb
 MKtmdb is a imdbapi.org API wrapper written in Java.
 
 This library provides classes and methods to fully access the imdbapi.org API with Java.
-This project is thinked in a layered fashion so you can use it at the level you prefer.
+This project is thought in a layered fashion so you can use it at the level you prefer.
 
 You can look at the API specification through this link http://imdbapi.org/.
 
